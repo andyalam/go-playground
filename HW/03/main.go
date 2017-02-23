@@ -6,8 +6,8 @@ import (
 )
 
 type person struct {
-	first string
-	last  string
+	First string
+	Last  string
 }
 
 var tpl *template.Template
@@ -55,15 +55,36 @@ func handler4(w http.ResponseWriter, r *http.Request) {
 
 // pass a value of type map to a template and display the values in the template
 func handler5(w http.ResponseWriter, r *http.Request) {
-	tpl.ExecuteTemplate(w, "5.gohtml", nil)
+	msi := map[string]int{
+		"wat":      5,
+		"no":       10,
+		"lkasdk":   2,
+		"asdsadsa": 0,
+	}
+	tpl.ExecuteTemplate(w, "5.gohtml", msi)
 }
 
 // pass a value of type map to a template and display the keys and values in the template
 func handler6(w http.ResponseWriter, r *http.Request) {
-	tpl.ExecuteTemplate(w, "6.gohtml", nil)
+	msi := map[string]int{
+		"wat":      5,
+		"no":       10,
+		"lkasdk":   2,
+		"asdsadsa": 0,
+	}
+	tpl.ExecuteTemplate(w, "6.gohtml", msi)
 }
 
-//   create a struct person. create some values of type person. add those values to a slice of person. pass the value of type []person to a template and display all of the values in the template
+// create a struct person. create some values of type person.
+// add those values to a slice of person.
+// pass the value of type []person to a template and display all of the
+// values in the template
 func handler7(w http.ResponseWriter, r *http.Request) {
-	tpl.ExecuteTemplate(w, "7.gohtml", nil)
+	p1 := person{"Andy", "A"}
+	p2 := person{"Joe", "J"}
+	p3 := person{"Jane", "J"}
+
+	xpeople := []person{p1, p2, p3}
+
+	tpl.ExecuteTemplate(w, "7.gohtml", xpeople)
 }
