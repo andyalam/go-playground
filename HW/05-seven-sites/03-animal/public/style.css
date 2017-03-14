@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.favorite-container {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0, 0.5);
+}
+
+.favorite {
+  max-width: 600px;
+  margin-right: 15px;
+  margin-left: 15px;
+  color: #fff;
+  background: rgba(0,0,0, 0.7);
+  padding: 20px;
+}
+
+.favorite img {
+  max-width: 100%;
+}
